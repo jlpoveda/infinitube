@@ -1,0 +1,15 @@
+search:
+    pattern: /search
+    defaults: { _controller: VideoBundle:Default:search }
+
+_search:
+    pattern: /search/
+    defaults: { _controller: VideoBundle:Default:search }
+
+watch:
+    pattern: /watch
+    defaults: { _controller: VideoBundle:Default:watch }
+
+_watch:
+    pattern: /watch/
+    defaults: { _controller: VideoBundle:Default:watch }

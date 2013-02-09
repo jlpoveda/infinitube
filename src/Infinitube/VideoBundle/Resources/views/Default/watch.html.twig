@@ -1,0 +1,36 @@
+<div class="row" style="position: fixed; background: #FFF; border-bottom: 1px solid #BBB; padding: 50px 0 10px 0">
+    <div class="span2">
+        <h1>Play</h1>
+    </div>
+    <div class="span1">
+    </div>
+    <div class="span6">
+        <h4 style="text-align: center"><?php echo $videoObj['data']['title']?></h4>
+        <div id="player"></div>
+    </div>
+    <div class="span1">
+    </div>
+    <div class="span2" id="next_container">
+        <a href="?v=<?php echo $nextVideoId?>" id="next"><h5></h5><img src="/img/next_256.png" /></a>
+    </div>
+</div>
+<div class="row" style="padding-top: 495px">
+
+    <?php
+        $videoIds = array();
+        foreach ($result['data']['items'] as $idx => $video) {
+    //var_dump($video);
+    //echo '<pre>' . print_r($video, true) . '</pre>';
+    if ($idx%6 == 0) {
+    echo '</div><div class="row">';
+    }
+    echo '<div class="span2 center related_video ' . ($video['id']==$nextVideoId?'next_video':'related_video') . '">';
+        echo '<img src="' . $video['thumbnail']['sqDefault'] . '" />';
+        echo '<a href="watch.php?v=' . $video['id'] . '">';
+            echo '<h5>' . $video['title'] . '</h5>';
+            echo '</a>';
+        echo '<small>' . $video['category'] . '</small>';
+        echo '</div>';
+    }
+    ?>
+</div>
